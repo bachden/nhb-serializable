@@ -6,8 +6,15 @@ public interface PuElement {
 
 	static final PuElement NULL = PuValue.from(null);
 
+	/**
+	 * Convert any object into PuElement
+	 * 
+	 * @param value
+	 *            to be wrapped in result PuElement's instance
+	 * @return PuElement wrap value
+	 */
 	@SuppressWarnings("unchecked")
-	public static PuElement from(Object value) {
+	static PuElement from(Object value) {
 		if (value instanceof PuElement) {
 			return (PuElement) value;
 		}

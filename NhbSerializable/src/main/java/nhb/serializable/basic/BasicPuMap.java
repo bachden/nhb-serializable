@@ -25,11 +25,11 @@ public class BasicPuMap implements PuMap {
 
 	@Override
 	public PuDataType typeOf(String key) {
-		return this.valueOf(key).getType();
+		return this.getElement(key).getType();
 	}
 
 	@Override
-	public PuElement valueOf(String key) {
+	public PuElement getElement(String key) {
 		return this.source.get(key);
 	}
 

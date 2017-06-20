@@ -33,7 +33,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 
 	PuDataType typeOf(String key);
 
-	PuElement valueOf(String key);
+	PuElement getElement(String key);
 
 	void putElement(String key, PuElement element);
 
@@ -93,7 +93,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 
 	@SuppressWarnings("unchecked")
 	default <T> T get(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new UnexpectedDataException("Data doesn't exist for key '" + key + "'");
 		} else if (value.getType() == PuDataType.NULL) {
@@ -127,7 +127,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default boolean asBoolean(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new UnexpectedDataException();
 		} else if (value.getType() == PuDataType.NULL) {
@@ -147,7 +147,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default byte asByte(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -167,7 +167,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default short asShort(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -187,7 +187,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default int asInteger(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -207,7 +207,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default long asLong(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -227,7 +227,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default float asFloat(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -247,7 +247,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default double asDouble(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -267,7 +267,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default char asChar(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -287,7 +287,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default String asString(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
@@ -307,7 +307,7 @@ public interface PuMap extends PuElement, PuIterable<Entry<String, PuElement>>, 
 	}
 
 	default byte[] asBinary(String key) {
-		PuElement value = this.valueOf(key);
+		PuElement value = this.getElement(key);
 		if (value == null) {
 			throw new NullPointerException();
 		} else if (value.getType() == PuDataType.ARRAY || value.getType() == PuDataType.MAP) {
